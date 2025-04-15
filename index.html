@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers | Digitalink</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .fade-in {
+      animation: fadeInUp 0.8s ease-out;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-white min-h-screen text-gray-800">
+  <!-- Hero Section -->
+  <section class="text-center py-16 fade-in">
+    <h1 class="text-4xl font-bold mb-4">Join Our Team</h1>
+    <p class="text-lg text-gray-600">Explore opportunities to grow with Digitalink.</p>
+  </section>
+
+  <!-- Job Listings -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto px-4">
+    <div class="bg-white p-6 rounded-2xl shadow-md cursor-pointer transition-transform transform hover:scale-105" onclick="openModal(0)">
+      <h2 class="text-xl font-semibold">Frontend Developer</h2>
+      <p class="text-sm text-gray-500">Hyderabad • Full-time</p>
+    </div>
+    <div class="bg-white p-6 rounded-2xl shadow-md cursor-pointer transition-transform transform hover:scale-105" onclick="openModal(1)">
+      <h2 class="text-xl font-semibold">UI/UX Designer</h2>
+      <p class="text-sm text-gray-500">Remote • Contract</p>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-md relative animate-fadeInUp">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-400 hover:text-gray-700">&times;</button>
+      <h3 id="job-title" class="text-xl font-semibold mb-4"></h3>
+      <form class="space-y-4">
+        <input type="text" placeholder="Full Name" class="w-full border p-2 rounded-md" required />
+        <input type="email" placeholder="Email Address" class="w-full border p-2 rounded-md" required />
+        <input type="file" class="w-full" required />
+        <textarea placeholder="Why should we hire you?" class="w-full border p-2 rounded-md h-24"></textarea>
+        <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition">Submit Application</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const jobs = [
+      { title: "Frontend Developer" },
+      { title: "UI/UX Designer" }
+    ];
+
+    function openModal(index) {
+      document.getElementById("modal").style.display = "flex";
+      document.getElementById("job-title").textContent = `Apply for ${jobs[index].title}`;
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
